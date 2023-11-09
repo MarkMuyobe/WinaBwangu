@@ -1,0 +1,248 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url(../rectangle.png);
+  background-size: cover; /* This will make the image fit the screen */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-attachment: fixed; /* Optional: Keeps the image fixed when scrolling */
+  color: #fff;
+}
+
+/* CSS code to style the navigation menu */
+
+nav {
+  color: #fff;
+  display: flex;
+  padding: 20px 40px;
+  align-items: center;
+  justify-content: space-between; /* Background color for the entire menu */
+}
+
+.fulllogo {
+  cursor: pointer;
+}
+
+.logoImg {
+  height: 15px;
+  width: 15px;
+}
+
+span {
+  color: #ff3550;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; /* Background color for the entire menu */
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block; /* Display list items horizontally */
+}
+
+nav ul li a {
+  display: block;
+  color: #fff; /* Text color for menu items */
+  text-decoration: none; /* Remove underlines from links */
+  padding: 10px 20px; /* Add spacing around links */
+}
+
+nav ul li a.active {
+  color: #ff3550;
+  font-weight: 700;
+}
+
+nav ul li a:hover {
+  color: black;
+  border-radius: 15px;
+  background-color: #ff3550; /* Background color when hovering over a link */
+}
+
+.logo {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 40px;
+}
+
+.greeting {
+  margin: 0 40px;
+}
+
+.formDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  color: #fff;
+}
+
+.aattext {
+  margin: 20px;
+}
+
+.totalResult {
+  font-size: 3vw;
+  font-weight: 700;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  align-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 20px;
+  border-color: #fff;
+  width: 100%;
+}
+
+.selection {
+  display: flex;
+  margin: 30px;
+  flex: 1;
+  flex-direction: column;
+}
+
+.details {
+  display: none;
+  height: auto;
+  flex: 1;
+  margin: 30px;
+  width: 500px;
+  background-color: transparent; /* Change the background color to your preference */
+  padding: 10px; /* Add some padding to create space around the content */
+  border: 2px solid #ff3550; /* Add a border for better separation */
+  border-radius: 5px; /* Rounded corners for a modern look */
+}
+
+/* Style the paragraph elements inside the container */
+.details p {
+  margin: 5px 0; /* Add some vertical spacing between paragraphs */
+  font-size: 16px; /* Adjust the font size to your preference */
+  color: #fff; /* Set the text color to a suitable color */
+}
+
+/* Style the select element */
+#locationDropdown,
+#serviceDropdown {
+  /* Set the width of the dropdown */
+  padding: 10px; /* Add some padding for better spacing */
+  border: 2px solid #ff3550; /* Add a border for styling */
+  border-radius: 4px; /* Add rounded corners */
+  font-size: 16px; /* Set the font size */
+  color: #fff;
+  background-color: transparent;
+  margin: 10px 0;
+  width: 400px;
+}
+
+/* Style the options within the dropdown */
+#locationDropdown option,
+#serviceDropdown option {
+  background-color: transparent;
+  backdrop-filter: blur(10px); /* Set background color for options */
+  color: #000; /* Set text color for options */
+  padding: 30px;
+  margin: 5px; /* Add some padding for better spacing */
+}
+
+/* Style the dropdown when it's focused (clicked) */
+#locationDropdown:focus,
+#serviceDropdown:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #ff3550; /* Change border color when focused */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type='number'] {
+  width: 400px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #ff3550;
+  border-radius: 3px;
+  color: #fff;
+  background-color: transparent;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='submit'] {
+  border-color: #ff3550;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input[type='submit']:hover {
+  background-color: #ff3550;
+  color: #000000;
+}
+
+/* *********************************************************** */
+
+.placeholder {
+  align-self: center;
+}
+
+.serviceDiv {
+  display: none;
+}
+
+.image-container {
+  display: flex; /* Use flexbox to horizontally align items */
+  justify-content: space-between; /* Space items evenly horizontally */
+  align-items: center; /* Center items vertically */
+  max-width: 500px;
+}
+
+/* Add styles to individual images (optional) */
+.image-container img {
+  flex: 1; /* Ensure images don't exceed their container's width */
+  height: auto; /* Maintain image aspect ratio */
+  margin-right: 10px; /* Add spacing between images (adjust as needed) */
+  width: 50px;
+}
+
+.serviceItem {
+  display: none;
+}
+
+.serviceItem.service1 {
+  display: block;
+}
+
+.charty {
+  display: flex;
+}
+
+.speech {
+  margin: 25px 25px;
+  width: 150px;
+}

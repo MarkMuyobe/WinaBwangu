@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url(../rectangle.png);
+  background-size: cover; /* This will make the image fit the screen */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-attachment: fixed; /* Optional: Keeps the image fixed when scrolling */
+}
+
+/* CSS code to style the navigation menu */
+
+nav {
+  color: #fff;
+  display: flex;
+  padding: 20px 40px;
+  align-items: center;
+  justify-content: space-between; /* Background color for the entire menu */
+}
+
+.fulllogo {
+  cursor: pointer;
+}
+
+span {
+  color: #ff3550;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; /* Background color for the entire menu */
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block; /* Display list items horizontally */
+}
+
+nav ul li a {
+  display: block;
+  color: #fff; /* Text color for menu items */
+  text-decoration: none; /* Remove underlines from links */
+  padding: 10px 20px; /* Add spacing around links */
+}
+
+nav ul li a.active {
+  color: #ff3550;
+  font-weight: 700;
+}
+
+nav ul li a:hover {
+  color: black;
+  border-radius: 15px;
+  background-color: #ff3550; /* Background color when hovering over a link */
+}
+
+.logo {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 40px;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h3 {
+  color: #fff;
+  margin: 20px;
+}
+/*  Form for entries */
+
+/* Card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Card Header */
+.card-header {
+  background-color: #ff3550;
+  padding: 10px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header Row */
+.header {
+  background-color: #f2f2f2;
+  font-weight: 700;
+  color: #000000;
+}
+
+.header td {
+  color: #000000;
+}
+
+/* Table Header Cells */
+.table th {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Table Data Cells */
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+tr {
+  color: #fff;
+}
+
+/* Basic Button Styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none; /* Button background color */
+  color: #fff; /* Button text color */
+  border-radius: 4px; /* Button border radius */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button Hover Styles */
+.btn:hover {
+  background-color: #0056b3; /* New background color on hover */
+  color: #fff; /* New text color on hover */
+}
+
+/* Primary Button Styles (Blue Button) */
+.btn-primary {
+  background-color: #ff3550;
+}
+
+.btn-danger {
+  border: 1px solid #ff0000;
+}
+
+.btn-danger:hover {
+  background-color: #ff0000;
+}
+
+/* Primary Button Hover Styles */
+.btn-primary:hover {
+  background-color: #0056b3;
+  border: 1px solid #0056b3;
+}
