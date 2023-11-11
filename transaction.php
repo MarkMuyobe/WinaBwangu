@@ -24,7 +24,7 @@ $result = getTransactionData();
         <nav>
             <h2 class="fulllogo">Wina <span class="logo">Bwangu</span></h2>
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="transact.php">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a class="active" href="transaction.php">Transactions</a></li>
                 <li><a href="dashboard.php">Dashboard</a></li>

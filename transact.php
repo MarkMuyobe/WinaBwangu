@@ -25,6 +25,49 @@ for ($i = 8; $i <= 30; $i++) {
 }
 ?>
 
+<?php
+
+// Include the functions.php file
+require_once 'functions.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $boothLocationMapping = array(
+        'Wina1' => 'Lusaka CPD',
+        'Wina2' => 'Libala',
+        'Wina3' => 'Kabwata',
+        'Wina4' => 'Mandevu',
+        'Wina5' => 'Woodlands',
+        'Wina6' => 'Matero East'
+    );
+
+    // Get the selected booth and look up its location
+    $booth = isset($_POST['selectedBooth']) ? $_POST['selectedBooth'] : '';
+    $location = isset($boothLocationMapping[$booth]) ? $boothLocationMapping[$booth] : '';
+
+
+
+    $service = $_POST['selectedService'];
+     // Assuming your 'services' table has columns 'service' and 'Revenue Per Kwanch'
+     $sql = "SELECT `Revenue Per Kwanch` FROM services WHERE `service` = '$service'";
+     $result = $conn->query($sql);
+ 
+     if ($result->num_rows > 0) {
+         $row = $result->fetch_assoc();
+         $revenuePerKwanch = $row['Revenue Per Kwanch'];
+     } else {
+         // Handle the case when the service is not found
+         echo "Service '$service' not found in the 'services' table.";
+     }
+    $transactionAmount = $_POST['transactionAmount'];
+
+
+    // Call the insertTransaction function from functions.php
+    insertTransaction($booth, $location, $service, $revenuePerKwanch, $transactionAmount);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +113,7 @@ for ($i = 8; $i <= 30; $i++) {
         <nav>
         <span class="logo">Wina Bwangu</span>
             <ul>
-                <li><a class="active" href="#">Home</a></li>
+                <li><a class="active" href="transact.php">Home</a></li>
                 <li><a href="barExample.php">About</a></li>
                 <li><a href="transaction.php">Transactions</a></li>
                 <li><a href="dashboard.php">Dashboard</a></li>
@@ -82,12 +125,13 @@ for ($i = 8; $i <= 30; $i++) {
     <div class="formDiv">
         
             <div class="form">
+            <form id="transaction-form" action="" method="post">
                 <div class="selection">
                     <h3 class="add">Add Transaction</h3>
-                    <form id="transaction-form" action="transaction.php" method="post">
+                    
                         <p>Select Booth</p>
                         <div class="bar">
-                            <select id="locationDropdown" onchange="populateServiceDropdown();" >
+                            <select name="selectedBooth" id="locationDropdown" onchange="populateServiceDropdown();" >
                                 <option value="none"></option>
                                 <?php 
 
@@ -105,19 +149,22 @@ for ($i = 8; $i <= 30; $i++) {
                         </div>
 
                         <div class="bar">
-                            <select id="serviceDropdown" onchange="showServiceDetails();">
+                            <select name="selectedService" id="serviceDropdown" onchange="showServiceDetails();">
                                 <!-- Service options will be populated here -->
                             </select>
                         </div>
                         <label for="amount">Transaction Amount:</label>
-                        <input class="input" type="number" id="amount" name="amount" step="1" placeholder="Enter an amount" onchange="updateAAT()"><br>
+                        <input class="input" type="number" id="amount" name="transactionAmount" step="1" placeholder="Enter an amount" onchange="updateAAT()"><br>
 
-                        <input type="submit" value="Submit">
-                    </form>
+                        
+                    
                 </div>
-                <div id="details" class="details">
+                
+                <input type="submit" value="Submit">
+            </form> 
+            <div id="details" class="details">
                     <h2 id="dBooth">WB data</h2>
-                    <h3 id="dLocation"> WB data</h3>
+                    <h3 name="dLocation" id="dLocation"> WB data</h3>
 
                     <div id ="placeholder" class="placeholder">
                         <p>Available services</p>
@@ -141,7 +188,7 @@ for ($i = 8; $i <= 30; $i++) {
                                 <p style='display:inline;' >Amount: </p>
                                 <p style="display: inline; margin-left: 8px;" id= 'dAmount'>0</p><br>
                                 <p style='display:inline;' id="dRPKP">Revenue Per Kwanch: </p>
-                                <p style="display: inline; margin-left: 8px;" id="dRPK"><?php echo $revenue;?></p><br>
+                                <p style="display: inline; margin-left: 8px;" id="dRPK" name="revenuePerKwanch"><?php echo $revenue;?></p><br>
                                 <p style='display:inline;'>Monthly Limit:</p>
                                 <p style="display: inline; margin-left: 8px;" id="dLimit"><?php echo $service['Monthly Limit'];?></p>
                                 <p id="dRemaining">Remaining</p>
@@ -156,7 +203,7 @@ for ($i = 8; $i <= 30; $i++) {
                         </div>
                     </div>
                     
-                </div>
+                </div>   
             </div>        
                     <!-- **************************************************************** -->
             

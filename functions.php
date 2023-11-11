@@ -63,6 +63,33 @@
         }
     }
 
+
+    function insertTransaction($booth, $location, $service, $revenuePerKwanch, $transactionAmount) {
+
+        global $conn;
+
+        // Get the current count of transactions
+        $sqlCount = "SELECT COUNT(*) as count FROM transactions";
+        $resultCount = $conn->query($sqlCount);
+        $rowCount = $resultCount->fetch_assoc();
+        $count = $rowCount['count'] + 1;
+
+        // Format the transactionID
+        $transactionID = "WB" . str_pad($count, 7, "0", STR_PAD_LEFT); // Ensures the number is 6 digits with leading zeros
+
+        // SQL query to insert data into the database
+        $sql = "INSERT INTO transactions (`Mobile booth`, `Location`, `Service`, `Revenue Per Kwanch`, `Transaction Amount`, `TransactionID`) 
+        VALUES ('$booth', '$location', '$service', '$revenuePerKwanch', '$transactionAmount', '$transactionID')";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully. TransactionID: " . $transactionID;
+        } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    }
+
     
     
 
