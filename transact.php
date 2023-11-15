@@ -5,7 +5,7 @@ require_once 'functions.php';
 
 $variable = "Hello, User!";
 
-$result = getBoothData();
+$results = getBoothData();
 
 $serviceDoc = getServiceData();
 
@@ -109,7 +109,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <option value="none"></option>
                                 <?php 
 
-                                    while($row = mysqli_fetch_assoc($result)){
+
+                                    while($row = mysqli_fetch_assoc($results)){
 
                                 ?>
 

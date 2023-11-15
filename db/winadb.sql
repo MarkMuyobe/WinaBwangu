@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 08:09 PM
+-- Generation Time: Nov 15, 2023 at 10:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -449,7 +449,10 @@ INSERT INTO `transactions` (`ID`, `TransactionID`, `Mobile Booth`, `Location`, `
 (342, 'WB000299', 'Wina4', 'Mandevu', 'Airtel Money', 0.05, 2345),
 (343, 'WB0000300', 'Wina2', 'Libala', 'Airtel Money', 0.05, 3452),
 (344, 'WB0000301', 'Wina3', 'Kabwata', 'MTN Money', 0.06, 2457),
-(345, 'WB0000302', 'Wina2', 'Libala', 'MTN Money', 0.06, 123);
+(345, 'WB0000302', 'Wina2', 'Libala', 'MTN Money', 0.06, 123),
+(346, 'WB0000303', 'Wina1', 'Lusaka CPD', 'Zanaco', 0.035, 2675),
+(347, 'WB0000304', 'Wina1', 'Lusaka CPD', 'Zanaco', 0.035, 2675),
+(348, 'WB0000305', 'Wina3', 'Kabwata', 'MTN Money', 0.06, 5000);
 
 --
 -- Indexes for dumped tables
@@ -505,7 +508,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

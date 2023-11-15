@@ -11,7 +11,6 @@
         ORDER BY ID DESC";
         $result = mysqli_query($conn, $query);
         return $result;
-        $conn->close();
     }
 
     function calculateTransactionSum() {
@@ -29,7 +28,6 @@
         } else {
             echo "No transactions found.";
         }
-        $conn->close();
     }
 
     function getBoothData(){
@@ -76,6 +74,8 @@
         return $result;
     }
 
+   
+    
 
 
     // function winaTotal($boothName){
