@@ -11,6 +11,7 @@
         ORDER BY ID DESC";
         $result = mysqli_query($conn, $query);
         return $result;
+        $conn->close();
     }
 
     function calculateTransactionSum() {
@@ -28,15 +29,43 @@
         } else {
             echo "No transactions found.";
         }
+        $conn->close();
     }
 
     function getBoothData(){
         global $conn;
         //Get the offerings table
         $query = "select * FROM offerings";
-        $result = mysqli_query($conn, $query);
-        return $result;
+        $queryResult = mysqli_query($conn, $query);
+        return $queryResult;
+
+        $conn->close();
     }
+
+    // function getBoothData(){
+    //     global $conn;
+    //     //Get the offerings table
+    //     $query = "SELECT * FROM offerings";
+    //     $result = mysqli_query($conn, $query);
+    
+    //     if ($result) {
+    //         $data = mysqli_fetch_assoc($result);
+    //         mysqli_free_result($result); // Free the result set
+    
+    //         // Clear any additional results from the previous query
+    //         while (mysqli_more_results($conn) && mysqli_next_result($conn)) {
+    //             if ($result = mysqli_store_result($conn)) {
+    //                 mysqli_free_result($result);
+    //             }
+    //         }
+    
+    //         return $data;
+    //     } else {
+    //         return array(); // Return an empty array if there are no matching rows or an error occurred.
+    //     }
+    //     // $conn->close();
+    // }
+    
 
     //To get Data from service table to populate the long dash cube
 
@@ -49,19 +78,35 @@
 
 
 
+    // function winaTotal($boothName){
+    //     global $conn;
+    //     $escapedBoothName = mysqli_real_escape_string($conn, $boothName); // Sanitize input to prevent SQL injection
+    //     $query = "SELECT SUM(`Transaction Amount`) AS TotalAmount FROM transactions WHERE `Mobile Booth` = '$escapedBoothName'";
+    //     $result = mysqli_query($conn, $query);
+        
+    //     if ($result) {
+    //         $row = mysqli_fetch_assoc($result);
+    //         return $row['TotalAmount'];
+    //     } else {
+    //         return 0; // Return 0 if there are no matching rows or an error occurred.
+    //     }
+    // }
+
     function winaTotal($boothName){
         global $conn;
         $escapedBoothName = mysqli_real_escape_string($conn, $boothName); // Sanitize input to prevent SQL injection
         $query = "SELECT SUM(`Transaction Amount`) AS TotalAmount FROM transactions WHERE `Mobile Booth` = '$escapedBoothName'";
         $result = mysqli_query($conn, $query);
-        
+    
         if ($result) {
             $row = mysqli_fetch_assoc($result);
+            mysqli_free_result($result); // Free the result set
             return $row['TotalAmount'];
         } else {
             return 0; // Return 0 if there are no matching rows or an error occurred.
         }
     }
+    
 
 
     function insertTransaction($booth, $location, $service, $revenuePerKwanch, $transactionAmount) {
@@ -86,20 +131,18 @@
         } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-        $conn->close();
     }
 
     
     
 
 
-    $winaTotal1 =winaTotal('Wina1');
-    $winaTotal2 =winaTotal('Wina2');
-    $winaTotal3 =winaTotal('Wina3');
-    $winaTotal4 =winaTotal('Wina4');
-    $winaTotal5 =winaTotal('Wina5');
-    $winaTotal6 =winaTotal('Wina6');
+    // $winaTotal1 =winaTotal('Wina1');
+    // $winaTotal2 =winaTotal('Wina2');
+    // $winaTotal3 =winaTotal('Wina3');
+    // $winaTotal4 =winaTotal('Wina4');
+    // $winaTotal5 =winaTotal('Wina5');
+    // $winaTotal6 =winaTotal('Wina6');
 
 
     

@@ -79,34 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="icon" href="OIP.png" type="image/png" sizes="64x64">
     <title>Wina Bwangu</title>
-
-    <script>
-        window.onload = function() {
-        
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            theme: "light2",
-            backgroundColor: null,
-            title:{
-                text: "Tax obligations",
-                fontSize: 20,
-            },
-            axisY: {
-                title: "Amount (in kwanch)"
-            },
-            data: [{
-                color: "#ff3550",
-                type: "column",
-                yValueFormatString: "#,##0.## kwacha",
-                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-            }]
-        });
-        chart.render();
-        
-        }
-    </script>
-
 </head>
+
 <body>
     
     <div class="hero">
@@ -220,5 +194,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 
 <?php
-// End PHP code
-?>
+// End PHP code?>
